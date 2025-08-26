@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Villa de los Andes | Educación Online - Validación Bachillerato y Cursos Técnicos</title>
+    <meta name="description" content="Obtén tu título de bachiller y certificaciones técnicas 100% online. Clases en vivo, tutorías personalizadas y precios accesibles. ¡Comienza hoy!">
+    <meta name="keywords" content="validación bachillerato, educación online, cursos técnicos, competencias laborales, asistente administrativo, primera infancia, gestión humana, SST">
+    <meta property="og:title" content="Villa de los Andes - Educación Online de Calidad">
+    <meta property="og:description" content="Transforma tu futuro con nuestros programas de validación de bachillerato y cursos técnicos por competencias laborales. Estudia 100% online con clases en vivo.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://villadelosandes.edu.co">
+    <link rel="icon" href="logo.png" type="image/png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .modal-overlay {
+            transition: opacity 0.3s ease;
+        }
+        .step-line {
+            content: '';
+            position: absolute;
+            top: 1.25rem; /* Alineado con el centro de los círculos */
+            left: 50%;
+            height: 2px;
+            width: calc(100% - 2.5rem); /* Ancho menos los círculos */
+            background-color: #e5e7eb; /* gray-200 */
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="w-full min-h-screen flex flex-col">
+
+        <header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm py-4">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <a href="#" class="text-2xl font-bold text-red-700 hover:text-red-900 transition-colors duration-300">
+                        IE Villa de los Andes
+                    </a>
+                    <div class="flex items-center gap-4">
+                        <nav class="hidden lg:flex space-x-8">
+                            <a href="#bachillerato" class="font-medium text-gray-600 hover:text-red-700">Bachillerato</a>
+                            <a href="#cursos-tecnicos" class="font-medium text-gray-600 hover:text-red-700">Cursos Técnicos</a>
+                            <a href="#metodologia" class="font-medium text-gray-600 hover:text-red-700">Metodología</a>
+                            <a href="#faq" class="font-medium text-gray-600 hover:text-red-700">Preguntas</a>
+                        </nav>
+                        <button id="open-login-btn" class="hidden lg:block bg-red-800 text-white font-semibold py-2 px-6 rounded-lg hover:bg-red-900 transition-colors duration-300">
+                            Iniciar Sesión
+                        </button>
+                        <button id="mobile-menu-btn" class="lg:hidden text-gray-600 hover:text-red-700 p-2">
+                            <svg id="menu-open-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                            <svg id="menu-close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="lg:hidden hidden overflow-hidden transition-all duration-300">
+                <nav class="py-4 px-4 sm:px-6 lg:px-8">
+                    <ul class="space-y-4">
+                        <li><a href="#bachillerato" class="block font-medium py-2 text-gray-600 hover:text-red-700">Bachillerato</a></li>
+                        <li><a href="#cursos-tecnicos" class="block font-medium py-2 text-gray-600 hover:text-red-700">Cursos Técnicos</a></li>
+                        <li><a href="#metodologia" class="block font-medium py-2 text-gray-600 hover:text-red-700">Metodología</a></li>
+                        <li><a href="#faq" class="block font-medium py-2 text-gray-600 hover:text-red-700">Preguntas</a></li>
+                        <li><button id="open-login-btn-mobile" class="w-full bg-red-800 text-white font-semibold py-2 px-6 rounded-lg hover:bg-red-900">Iniciar Sesión</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <div id="promo-banner" class="fixed top-30 left-1/2 transform -translate-x-1/2 z-50 transition-transform duration-500 -translate-y-[200%]" style="transition-property: transform;">
+            <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-md shadow-lg">
+                ¡Matrícula <b>50% de descuento</b> si te inscribes hoy! Oferta por tiempo limitado.
+            </div>
+        </div>
+
+        <main>
+            <section id="hero" class="relative min-h-screen flex items-center mt-10">
+                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat mt-8" style="background-image: url('bglanding.png');"></div>
+                <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+                <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div class="fade-in">
+                        <div class="bg-black bg-opacity-30 p-6 rounded-lg inline-block">
+                            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+                                Tu Futuro Educativo
+                                <span class="block text-white">Comienza Aquí</span>
+                            </h1>
+                        </div>
+                        <p class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">Educación flexible y personalizada con títulos oficiales. Clases en vivo y tutorías individuales.</p>
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                            <a href="bglanding.png" target="_blank" class="inline-flex items-center justify-center bg-white text-red-900 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition duration-300 text-lg shadow-lg transform hover:scale-105">Validar Bachillerato<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-5 w-5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+                            <a href="#cursos-tecnicos" class="inline-flex items-center justify-center bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-red-900 transition duration-300 text-lg shadow-lg transform hover:scale-105">Explorar Cursos Técnicos</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="bachillerato" class="py-20 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Valida tu Bachillerato 100% Online</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Nuestro programa de validación está diseñado para jóvenes y adultos que desean obtener su título oficial de forma flexible y con acompañamiento constante.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="fade-in">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">¿Para Quién es Este Programa?</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start"><div class="flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-red-600 mr-3"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><h4 class="font-semibold">Adultos Trabajadores</h4><p class="text-gray-600">Que buscan finalizar sus estudios sin afectar su horario laboral.</p></div></li>
+                                <li class="flex items-start"><div class="flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-red-600 mr-3"><path d="M4.26 10.18 2 12a10 10 0 1 0 10-10A10 10 0 0 0 8.5 2.14"/><path d="m10 2 4 4"/><path d="M12 22a10 10 0 0 0-9.82-8.24"/></svg></div><div><h4 class="font-semibold">Jóvenes con Horarios Flexibles</h4><p class="text-gray-600">Que necesitan una alternativa al sistema educativo tradicional.</p></div></li>
+                                <li class="flex items-start"><div class="flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-red-600 mr-3"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h4 class="font-semibold">Personas en Cualquier Lugar</h4><p class="text-gray-600">Que viven en zonas rurales o en el extranjero y quieren un título colombiano.</p></div></li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-xl shadow-md fade-in">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Beneficios Clave</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-green-500 mr-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span><strong>Título Oficial</strong> avalado por el Ministerio de Educación.</span></li>
+                                <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-green-500 mr-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span><strong>Flexibilidad Total</strong> para estudiar a tu propio ritmo.</span></li>
+                                <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-green-500 mr-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span><strong>Acompañamiento Continuo</strong> con tutores personalizados.</span></li>
+                                <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-green-500 mr-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span><strong>Plataforma Moderna</strong> accesible desde cualquier dispositivo.</span></li>
+                            </ul>
+                            <a href="https://wa.me/573132529490?text=Hola,%20quiero%20validar%20mi%20bachillerato.%20Necesito%20más%20información." target="_blank" class="mt-8 w-full text-center inline-block bg-red-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition duration-300">Quiero mi Título de Bachiller</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cursos-tecnicos" class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Fórmate para el Futuro: Cursos Técnicos</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Impulsa tu carrera con nuestros programas por competencias laborales, 100% virtuales y enfocados en las habilidades que el mercado demanda.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-red-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-red-700"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                                <h3 class="text-lg font-bold text-gray-800">Auxiliar en Asistente Administrativo y de Oficina</h3>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-red-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-red-700"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                                <h3 class="text-lg font-bold text-gray-800">Asistente en Gestión Humana</h3>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-red-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-red-700"><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M20.3 5.7 12 12 3.7 5.7a1 1 0 0 1 1.4-1.4L12 9.2l7-4.8a1 1 0 0 1 1.3 1.3z"/><path d="M12 22a4 4 0 0 0 4-4h-8a4 4 0 0 0 4 4Z"/><path d="M12 2v2"/><path d="M22 12h-2"/><path d="M2 12H4"/></svg></div>
+                                <h3 class="text-lg font-bold text-gray-800">Auxiliar en Atención Integral a la Primera Infancia</h3>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-red-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-red-700"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                                <h3 class="text-lg font-bold text-gray-800">Seguridad y Salud en el Trabajo</h3>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 fade-in">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-red-100 p-3 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-red-700"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="2" x2="12" y2="22"/></svg></div>
+                                <h3 class="text-lg font-bold text-gray-800">Desarrollo y Análisis de Sistemas de Información</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-2xl shadow-lg fade-in">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-4">Información General</h3>
+                                <ul class="space-y-4 text-gray-700">
+                                    <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-red-600"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><strong>Horario:</strong> Lunes a Viernes de 8:00 PM a 9:00 PM.</li>
+                                    <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-red-600"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><strong>Duración:</strong> 2 semestres.</li>
+                                    <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-red-600"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><strong>Requisitos:</strong> Diploma y acta, documento de identidad, formulario.</li>
+                                    <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-red-600"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg><strong>Titulación:</strong> Vía proyecto de grado práctico (sin pasantías).</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                                <h3 class="text-2xl font-bold mb-4">Inversión</h3>
+                                <div class="mb-4">
+                                    <p class="text-4xl font-bold text-red-800">$90.000</p>
+                                    <p class="text-gray-600">Matrícula única</p>
+                                </div>
+                                <div>
+                                    <p class="text-4xl font-bold text-red-800">$70.000</p>
+                                    <p class="text-gray-600">Pensión mensual</p>
+                                </div>
+                                <a href="https://wa.me/573132529490?text=Hola,%20estoy%20interesado(a)%20en%20los%20cursos%20técnicos.%20¿Podrían%20darme%20más%20detalles?" target="_blank" class="mt-6 w-full text-center inline-block bg-red-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition duration-300">¡Quiero Inscribirme Ahora!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="metodologia" class="py-20 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <div class="text-center mb-16 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nuestra Metodología Virtual</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Te ofrecemos una experiencia de aprendizaje interactiva, flexible y diseñada para tu éxito.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                        <div class="fade-in">
+                           <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-red-700"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                           <h3 class="text-xl font-bold text-gray-800 mb-2">Clases en Vivo</h3>
+                           <p class="text-gray-600">Participa, pregunta y aprende en tiempo real con docentes expertos cada noche.</p>
+                        </div>
+                         <div class="fade-in">
+                           <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-red-700"><path d="m10 11 2.5-2.5L15 11"/><path d="m10 13 2.5 2.5L15 13"/><circle cx="12" cy="12" r="10"/><path d="M7 12h2.5"/><path d="m14.5 12-5 6"/><path d="m14.5 12-5-6"/></svg></div>
+                           <h3 class="text-xl font-bold text-gray-800 mb-2">Plataforma 24/7</h3>
+                           <p class="text-gray-600">Accede a las clases grabadas, materiales y actividades en cualquier momento.</p>
+                        </div>
+                         <div class="fade-in">
+                           <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-red-700"><path d="M18 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h13l4 4V8a2 2 0 0 0-2-2Z"/><path d="M12 18h6"/><path d="M12 15h6"/></svg></div>
+                           <h3 class="text-xl font-bold text-gray-800 mb-2">Tutorías Personalizadas</h3>
+                           <p class="text-gray-600">Recibe apoyo individual para resolver tus dudas y reforzar tu aprendizaje.</p>
+                        </div>
+                         <div class="fade-in">
+                           <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-red-700"><path d="M12 6.52c-2.26.16-4.52.7-6.5 2.11a.48.48 0 0 0-.2.43V18a2 2 0 0 0 2 2h13.4a.6.6 0 0 0 .6-.6V9.06c-.1-.13-.2-.25-.3-.36-1.55-2.18-4.2-3.1-6.7-3.18-2.5-.08-5.18.84-6.7 3.18"/>
+                            <path d="M12 2v4"/><path d="M18.2 4.2a6 6 0 0 1 1.6 1.6"/><path d="M5.8 5.8a6 6 0 0 1 1.6-1.6"/></svg></div>
+                           <h3 class="text-xl font-bold text-gray-800 mb-2">Enfoque Práctico</h3>
+                           <p class="text-gray-600">Desarrolla un proyecto final que demuestra tus competencias en un entorno real.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="proceso-inscripcion" class="py-20 bg-gray-50">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Inscríbete en 3 Simples Pasos</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comenzar tu futuro con nosotros es fácil y rápido.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-red-200" style="transform: translateY(-50%);"></div>
+                        <div class="relative grid md:grid-cols-3 gap-12">
+                            <div class="text-center fade-in">
+                                <div class="relative inline-block">
+                                    <div class="w-20 h-20 mx-auto bg-red-600 text-white rounded-full flex items-center justify-center text-3xl font-bold">1</div>
+                                </div>
+                                <h3 class="text-xl font-bold mt-6 mb-2">Contacto y Asesoría</h3>
+                                <p class="text-gray-600">Escríbenos por WhatsApp. Un asesor resolverá todas tus dudas y te guiará en el proceso.</p>
+                            </div>
+                             <div class="text-center fade-in">
+                                <div class="relative inline-block">
+                                    <div class="w-20 h-20 mx-auto bg-red-600 text-white rounded-full flex items-center justify-center text-3xl font-bold">2</div>
+                                </div>
+                                <h3 class="text-xl font-bold mt-6 mb-2">Envío de Documentos</h3>
+                                <p class="text-gray-600">Reúne los requisitos (documento, diplomas, etc.) y envíalos de forma digital.</p>
+                            </div>
+                             <div class="text-center fade-in">
+                                <div class="relative inline-block">
+                                    <div class="w-20 h-20 mx-auto bg-red-600 text-white rounded-full flex items-center justify-center text-3xl font-bold">3</div>
+                                </div>
+                                <h3 class="text-xl font-bold mt-6 mb-2">Pago y Acceso</h3>
+                                <p class="text-gray-600">Realiza el pago de tu matrícula. Recibirás acceso a la plataforma y ¡listo para empezar!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-12 fade-in">
+                         <a href="https://wa.me/573132529490?text=Hola,%20quiero%20iniciar%20mi%20proceso%20de%20inscripción.%20¿Me%20pueden%20ayudar?" target="_blank" class="inline-block bg-red-600 text-white font-bold py-4 px-10 rounded-lg hover:bg-red-700 transition duration-300 text-lg shadow-lg">¡Comenzar mi Inscripción Ahora!</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="testimonios" class="py-20 bg-white">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Lo que Dicen Nuestros Estudiantes</h2>
+                        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Historias de éxito que nos inspiran a seguir transformando vidas.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+                            <div class="flex items-center mb-4 text-yellow-500"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic">"Gracias a la flexibilidad de horarios pude terminar mi bachillerato mientras trabajaba. Los profesores siempre estuvieron ahí para apoyarme. ¡Totalmente recomendado!"</p>
+                            <div class="font-bold text-gray-800">Ana Pérez</div>
+                            <div class="text-sm text-red-700">Graduada de Bachillerato</div>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+                             <div class="flex items-center mb-4 text-yellow-500">
+                               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic">"El curso de Asistente Administrativo me dio las herramientas que necesitaba. El enfoque en un proyecto práctico fue clave para conseguir mi nuevo empleo."</p>
+                            <div class="font-bold text-gray-800">Carlos Rojas</div>
+                            <div class="text-sm text-red-700">Técnico en Asistente Administrativo</div>
+                        </div>
+                        <div class="bg-gray-50 p-8 rounded-lg shadow-sm fade-in">
+                             <div class="flex items-center mb-4 text-yellow-500">
+                               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            </div>
+                            <p class="text-gray-600 mb-6 italic">"Estudiar desde casa fue la mejor decisión. El horario nocturno se adaptó perfecto a mi vida y aprendí muchísimo en el técnico de Primera Infancia. ¡Gracias!"</p>
+                            <div class="font-bold text-gray-800">Laura Jiménez</div>
+                            <div class="text-sm text-red-700">Técnica en Atención a la Primera Infancia</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="faq" class="py-20 bg-gray-50">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Preguntas Frecuentes</h2>
+                        <p class="text-xl text-gray-600">Resolvemos tus dudas sobre nuestros programas.</p>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
+                            <h3 class="text-xl font-bold mb-2">¿Los títulos son oficiales?</h3>
+                            <p class="text-gray-600">Sí, todos nuestros títulos de bachiller y certificados técnicos por competencias laborales están avalados y son válidos en todo el territorio colombiano.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
+                            <h3 class="text-xl font-bold mb-2">¿Cómo son las clases virtuales?</h3>
+                            <p class="text-gray-600">Las clases se realizan en vivo a través de nuestra plataforma en un horario fijo. Son interactivas y quedan grabadas para que puedas repasarlas cuando lo necesites.</p>
+                        </div>
+                         <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
+                            <h3 class="text-xl font-bold mb-2">¿Hay prácticas o pasantías en los cursos técnicos?</h3>
+                            <p class="text-gray-600">No. Como requisito de grado, manejamos un proyecto práctico final donde aplicas todo lo aprendido. Esto te permite demostrar tus competencias sin la necesidad de buscar una pasantía.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-sm fade-in">
+                            <h3 class="text-xl font-bold mb-2">¿Qué requisitos necesito para inscribirme?</h3>
+                            <p class="text-gray-600">Para los cursos técnicos, necesitas tu documento de identidad, diploma y acta de bachiller. Para la validación de bachillerato, tu documento y los certificados del último año cursado.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="bg-red-900 text-white py-16">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Villa de los Andes</h3>
+                        <p class="text-gray-300">Transformando vidas a través de la educación en línea desde 2015</p>
+                        <div class="flex space-x-4 mt-6">
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                            <a href="#" class="text-gray-300 hover:text-white transition duration-200"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Navegación</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#bachillerato" class="text-gray-300 hover:text-white">Bachillerato</a></li>
+                            <li><a href="#cursos-tecnicos" class="text-gray-300 hover:text-white">Cursos Técnicos</a></li>
+                            <li><a href="#metodologia" class="text-gray-300 hover:text-white">Metodología</a></li>
+                            <li><a href="#proceso-inscripcion" class="text-gray-300 hover:text-white">Inscripción</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Contacto Directo</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 mr-2 text-gray-300"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:+573132529490" class="text-gray-300 hover:text-white">+57 313 2529490</a></li>
+                            <li class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 mr-2 text-gray-300"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:f.eduvativavilladelosandes@gmail.com" class="text-gray-300 hover:text-white">f.eduvativavilladelosandes@gmail.com</a></li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h4 class="text-lg font-semibold mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="privacidad.html" class="text-gray-300 hover:text-white">Política de Privacidad</a></li>
+                            <li><a href="terminos.html" class="text-gray-300 hover:text-white">Términos y Condiciones</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-red-800 mt-12 pt-8 text-center">
+                    <p id="copyright" class="text-gray-400">&copy; 2024 Fundación Educativa Villa de los Andes. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <a href="https://validaciondebachillerato.com.co/reporte" target="_blank" rel="noopener noreferrer" class="fixed top-1/2 right-6 -translate-y-1/2 bg-red-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-red-700 transition-all duration-300 flex items-center justify-center space-x-2 z-40 transform translate-x-[150%]" id="consultar-notas-btn" title="Consultar mis Notas"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg><span>Consultar Notas</span></a>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... (El script de la respuesta anterior va aquí, no necesita cambios)
+            const header = document.getElementById('main-header');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOpenIcon = document.getElementById('menu-open-icon');
+            const menuCloseIcon = document.getElementById('menu-close-icon');
+            const promoBanner = document.getElementById('promo-banner');
+            const notasBtn = document.getElementById('consultar-notas-btn');
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    header.classList.add('bg-white', 'shadow-md', 'py-2');
+                    header.classList.remove('bg-white/90', 'backdrop-blur-sm', 'py-4');
+                } else {
+                    header.classList.remove('bg-white', 'shadow-md', 'py-2');
+                    header.classList.add('bg-white/90', 'backdrop-blur-sm', 'py-4');
+                }
+            });
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                menuOpenIcon.classList.toggle('hidden');
+                menuCloseIcon.classList.toggle('hidden');
+            });
+            
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuOpenIcon.classList.remove('hidden');
+                    menuCloseIcon.classList.add('hidden');
+                });
+            });
+
+            setTimeout(() => {
+                promoBanner.classList.remove('-translate-y-[200%]');
+                promoBanner.classList.add('translate-y-0');
+            }, 5000);
+
+             setTimeout(() => {
+                notasBtn.classList.remove('translate-x-[150%]');
+                notasBtn.classList.add('translate-x-0');
+            }, 500);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            fadeInElements.forEach(el => {
+                observer.observe(el);
+            });
+            
+            document.getElementById('copyright').innerHTML = `&copy; ${new Date().getFullYear()} Fundación Educativa Villa de los Andes. Todos los derechos reservados.`;
+        });
+    </script>
+</body>
+</html>
