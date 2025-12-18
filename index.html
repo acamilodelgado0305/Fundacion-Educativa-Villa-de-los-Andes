@@ -598,6 +598,58 @@
            btn.classList.add("translate-x-0");
         }, 800);
       });
+
+      // --- LÓGICA DE COOKIES ---
+      const cookieBanner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('btn-accept-cookies');
+      const rejectBtn = document.getElementById('btn-reject-cookies');
+
+      // 1. Revisar si ya aceptó o rechazó antes
+      const cookieConsent = localStorage.getItem('villaAndesCookieConsent');
+
+      // 2. Si no hay registro, mostrar el banner después de 2 segundos
+      if (!cookieConsent) {
+          setTimeout(() => {
+              cookieBanner.classList.remove('hidden');
+              cookieBanner.classList.add('visible'); // Usa tu clase fade-in
+          }, 2000);
+      }
+
+      // 3. Al dar clic en Aceptar
+      acceptBtn.addEventListener('click', () => {
+          localStorage.setItem('villaAndesCookieConsent', 'accepted');
+          cookieBanner.classList.remove('visible');
+          setTimeout(() => cookieBanner.classList.add('hidden'), 500);
+          
+          // AQUÍ PODRÍAS ACTIVAR TUS PIXELES DE FACEBOOK/GOOGLE
+          console.log("Cookies aceptadas - Pixel activado"); 
+      });
+
+      // 4. Al dar clic en Rechazar
+      rejectBtn.addEventListener('click', () => {
+          localStorage.setItem('villaAndesCookieConsent', 'rejected');
+          cookieBanner.classList.remove('visible');
+          setTimeout(() => cookieBanner.classList.add('hidden'), 500);
+      });
     </script>
+
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-white z-50 p-4 shadow-[0_-5px_15px_rgba(0,0,0,0.1)] border-t border-gray-200 hidden fade-in">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="text-sm text-gray-600">
+                <p>
+                    <strong>🍪 Uso de Cookies:</strong> Utilizamos cookies propias y de terceros para mejorar tu experiencia y ofrecerte contenidos de tu interés. Al continuar navegando, aceptas nuestra 
+                    <a href="#" class="text-red-700 font-bold hover:underline">Política de Privacidad</a>.
+                </p>
+            </div>
+            <div class="flex gap-3">
+                <button id="btn-reject-cookies" class="text-gray-500 font-medium hover:text-gray-800 text-sm px-4 py-2 transition">
+                    Rechazar
+                </button>
+                <button id="btn-accept-cookies" class="bg-red-700 text-white font-bold text-sm px-6 py-2 rounded-lg hover:bg-red-800 transition shadow-lg">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
